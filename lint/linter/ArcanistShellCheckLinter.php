@@ -111,6 +111,7 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
           ->setPath($path)
           ->setLine($child->getAttribute('line'))
           ->setChar($child->getAttribute('column'))
+          ->setName($this->getLinterName())
           ->setCode($code)
           ->setDescription($child->getAttribute('message'));
 
