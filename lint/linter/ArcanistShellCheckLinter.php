@@ -3,6 +3,7 @@
 final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
 
   private $shell;
+  private $exclude;
 
   public function getInfoName() {
     return 'ShellCheck';
@@ -37,6 +38,10 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
           'ksh',
           'zsh'),
       ),
+      'shellcheck.exclude' => array(
+        'type' => 'optional list<string>',
+        'help' => pht('Specify excluded checks, e.g.: SC2035.'),
+      ),
     );
 
     return $options + parent::getLinterConfigurationOptions();
@@ -48,6 +53,10 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
         $this->setShell($value);
         return;
 
+      case 'shellcheck.exclude':
+        $this->setExclude($value);
+        return;
+
       default:
         return parent::setLinterConfigurationValue($key, $value);
     }
@@ -55,6 +64,11 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
 
   public function setShell($shell) {
     $this->shell = $shell;
+    return $this;
+  }
+
+  public function setExclude($exclude) {
+    $this->exclude = $exclude;
     return $this;
   }
 
@@ -75,6 +89,12 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
 
     if ($this->shell) {
       $options[] = '--shell='.$this->shell;
+    }
+
+    if ($this->exclude) {
+      foreach ($this->exclude as $code) {
+        $options[] = '--exclude='.$code;
+      }
     }
 
     return $options;

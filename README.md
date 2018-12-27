@@ -51,6 +51,11 @@ if you aren't able to install globally as instructed above:
 }
 ```
 
+**OPTIONS**
+
+Please see `arc linters shellcheck` for the list of options supported by this
+linter.
+
 **TIPS**
 
 As Arcanist currently doesn't detect file formats or doesn't parse
