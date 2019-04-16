@@ -67,7 +67,7 @@ That doesn't mean you have to install them with the extension, both
 cp and install commands are happy to accept an arbitray filename as
 target, including a target without the extension.
 
-**CERDITS**
+**CREDITS**
 
   - Joshua Spence: linter development
   - Sébastien Santoro: library packaging, maintainer
