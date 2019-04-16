@@ -10,9 +10,11 @@ phutil_register_library_map(array(
   '__library_version__' => 2,
   'class' => array(
     'ArcanistShellCheckLinter' => 'lint/linter/ArcanistShellCheckLinter.php',
+    'ArcanistShellCheckLinterTestCase' => 'lint/linter/__tests__/ArcanistShellCheckLinterTestCase.php',
   ),
   'function' => array(),
   'xmap' => array(
     'ArcanistShellCheckLinter' => 'ArcanistExternalLinter',
+    'ArcanistShellCheckLinterTestCase' => 'PhutilTestCase',
   ),
 ));
