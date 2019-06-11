@@ -10,7 +10,7 @@ final class ArcanistShellCheckLinter extends ArcanistExternalLinter {
   }
 
   public function getInfoURI() {
-    return 'http://www.shellcheck.net/';
+    return 'https://www.shellcheck.net/';
   }
 
   public function getInfoDescription() {
